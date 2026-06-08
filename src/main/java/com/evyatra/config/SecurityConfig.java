@@ -36,7 +36,8 @@ public class SecurityConfig {
 
         // Allow React frontend
         config.setAllowedOrigins(List.of(
-                "http://localhost:3000"
+                "http://localhost:3000",
+                "https://evyatra-frontend-crk1jrup8-kunal-p-projects.vercel.app"
         ));
 
         // Allow All methods
