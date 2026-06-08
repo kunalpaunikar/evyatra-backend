@@ -34,16 +34,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // Allow React frontend
-        config.setAllowedOrigins(List.of(
+        // Allow local dev and any Vercel deployment for this frontend
+        config.setAllowedOriginPatterns(List.of(
                 "http://localhost:3000",
-                "https://evyatra-frontend-crk1jrup8-kunal-p-projects.vercel.app"
+                "https://*.vercel.app"
         ));
 
         // Allow All methods
-        config.setAllowedMethods(List.of(
-                "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"
-        ));
+        config.setAllowedMethods(List.of("*"));
 
         // Allow All headers
         config.setAllowedHeaders(List.of("*"));
