@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 🚀 Live Demo
-- 🌐 Frontend: [evyatra.vercel.app](https://evyatra.vercel.app)
+- 🌐 Frontend: [evyatra.vercel.app](https://evyatra-frontend.vercel.app)
 - 📖 API Docs: [Swagger UI](https://evyatra-api.railway.app/swagger-ui/index.html)
 
 ---
