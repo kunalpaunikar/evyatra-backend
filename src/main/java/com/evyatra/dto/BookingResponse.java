@@ -9,6 +9,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class BookingResponse {
     private Long bookingId;
+    private Long stationId;
     private String stationName;
     private String slotNumber;
     private String chargerType;

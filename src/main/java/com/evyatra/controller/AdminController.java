@@ -19,6 +19,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
+import com.evyatra.repository.ReviewRepository;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -31,6 +34,7 @@ public class AdminController {
     private final EvStationRepository stationRepository;
     private final BookingRepository bookingRepository;
     private final PaymentRepository paymentRepository;
+    private final ReviewRepository reviewRepository;
 
     // All users
     @GetMapping("/users")
@@ -76,10 +80,10 @@ public class AdminController {
     @Transactional
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User nahi mila!"));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found!"));
 
         if (user.getRole() == User.Role.ROLE_ADMIN) {
-            throw new BadRequestException("Admin ko delete nahi kar sakte!");
+            throw new BadRequestException("cannot delete the Admin!");
         }
 
         // Delete the Booking of User First
@@ -131,6 +135,23 @@ public class AdminController {
         );
 
         return ResponseEntity.ok(stationRepository.save(station));
+    }
+
+    @GetMapping("/reviews")
+    public ResponseEntity<?> getAllReviews() {
+        List<Map<String, Object>> reviews = reviewRepository.findAll()
+                .stream()
+                .map(r -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("userName", r.getUser().getName());
+                    map.put("stationName", r.getStation().getName());
+                    map.put("rating", r.getRating());
+                    map.put("comment", r.getComment());
+                    map.put("createdAt", r.getCreatedAt());
+                    return map;
+                })
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(reviews);
     }
 
     // Dashboard stats

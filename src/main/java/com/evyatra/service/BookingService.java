@@ -106,6 +106,7 @@ public class BookingService {
     private BookingResponse mapToResponse(Booking booking) {
         return new BookingResponse(
                 booking.getId(),
+                booking.getStation().getId(),  // ← stationId add karo
                 booking.getStation().getName(),
                 booking.getSlot().getSlotNumber(),
                 booking.getSlot().getChargerType().name(),

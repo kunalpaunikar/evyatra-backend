@@ -24,7 +24,7 @@ public class ChargerSlotController {
             @PathVariable Long stationId) {
 
         EvStation station = stationRepository.findById(stationId)
-                .orElseThrow(() -> new RuntimeException("Station nahi mila!"));
+                .orElseThrow(() -> new RuntimeException("Station not found !"));
 
         List<ChargerSlot> slots = slotRepository
                 .findByStationAndStatus(station, ChargerSlot.SlotStatus.AVAILABLE);

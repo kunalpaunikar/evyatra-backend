@@ -26,7 +26,7 @@ public class PaymentService {
         Booking booking = bookingRepository
                 .findById(request.getBookingId())
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "Booking nahi mili!"
+                        "Didn't get a booking! "
                 ));
 
         // Already paid?
@@ -34,7 +34,7 @@ public class PaymentService {
                 .ifPresent(p -> {
                     if (p.getPaymentStatus() == Payment.PaymentStatus.SUCCESS) {
                         throw new BadRequestException(
-                                "Ye booking already paid hai!"
+                                "This booking is already paid for! "
                         );
                     }
                 });
@@ -42,7 +42,7 @@ public class PaymentService {
         // Search User
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "User nahi mila!"
+                        "User not found! "
                 ));
 
         // Generate Transaction ID
@@ -86,7 +86,7 @@ public class PaymentService {
         Payment payment = paymentRepository
                 .findByBookingId(bookingId)
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "Payment nahi mili!"
+                        "Payment not received! "
                 ));
 
         return new PaymentResponse(
