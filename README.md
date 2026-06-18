@@ -226,6 +226,9 @@ User  → paunikarkunal01@gmail.com
 ### User Profile
 ![User Profile](screenshots/UserProfile.jpeg)
 
+### Reset OTP Mail
+![ResetOTP](screenshots/ResetOTPMail.jpeg)
+
 ### User Review
 ![Review](screenshots/Review.jpeg)
 
