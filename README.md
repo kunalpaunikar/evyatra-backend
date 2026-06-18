@@ -8,7 +8,7 @@
 
 ## 🚀 Live Demo
 - 🌐 Frontend: [evyatra.vercel.app](https://evyatra-frontend.vercel.app)
-- 📖 API Docs: [Swagger UI](https://evyatra-api.railway.app/swagger-ui/index.html)
+- 📖 API Docs: [Swagger UI](https://evyatra-backend-prod.onrender.com/swagger-ui/index.html)
 
 ---
 
