@@ -7,7 +7,8 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 🚀 Live Demo
-- 🌐 Frontend: [evyatra.vercel.app](https://evyatra-frontend.vercel.app/)
+<<<<<<< HEAD
+- 🌐 Frontend: - [evyatra.vercel.app](https://evyatra-frontend.vercel.app)
 - 📖 API Docs: [Swagger UI](https://evyatra-backend-prod.onrender.com/swagger-ui/index.html)
 
 ---
@@ -89,8 +90,6 @@ evyatra/
 ```
 
 ---
-
-## 🗄️ Database Schema
 
 ## 🗄️ Database Schema
 
