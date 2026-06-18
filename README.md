@@ -7,8 +7,8 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## 🚀 Live Demo
-- 🌐 Frontend: [evyatra.vercel.app](https://evyatra-frontend.vercel.app)
-- 📖 API Docs: [Swagger UI](https://evyatra-api.railway.app/swagger-ui/index.html)
+- 🌐 Frontend: [evyatra.vercel.app](https://evyatra-frontend.vercel.app/)
+- 📖 API Docs: [Swagger UI](https://evyatra-backend-prod.onrender.com/swagger-ui/index.html)
 
 ---
 
@@ -33,12 +33,14 @@ book slots, and make payments — all in one place.
 - 💳 Payment — UPI, Card, NetBanking, Wallet
 - 🧾 Payment Receipt with Print Option
 - 📅 My Bookings — View & Cancel
+- ⭐ Reviews & Ratings — Rate stations after booking
 - 👤 My Profile — View & Edit
 
 ### Admin Features
 - 🛡️ Role Based Access Control
 - 👥 Manage Users — View & Delete
 - 📍 Manage Stations — Add & Delete
+- ⭐ View All Reviews — User feedback monitoring
 - 📊 Dashboard — Stats & All Bookings
 - 📅 Booking History — All Users
 
@@ -90,12 +92,15 @@ evyatra/
 
 ## 🗄️ Database Schema
 
+## 🗄️ Database Schema
+
 ```
 users          → id, name, email, password, phone, role
 ev_stations    → id, name, address, city, lat, lng, chargers, price
 charger_slots  → id, station_id, slot_number, charger_type, status
 bookings       → id, user_id, slot_id, station_id, date, time, amount
 payments       → id, booking_id, amount, method, status, transaction_id
+reviews        → id, user_id, station_id, booking_id, rating, comment, created_at
 password_reset_otp → id, email, otp, expiry_time
 ```
 
@@ -140,6 +145,13 @@ GET    /api/admin/bookings     → All Bookings
 POST   /api/admin/stations     → Add Station
 DELETE /api/admin/stations/{id}→ Delete Station
 GET    /api/admin/stats        → Dashboard Stats
+```
+
+### Review APIs (Protected)
+```
+POST /api/reviews              → Submit Review
+GET  /api/reviews/station/{id} → Station Reviews
+GET  /api/reviews/check/{id}   → Check if Reviewed
 ```
 
 ---
